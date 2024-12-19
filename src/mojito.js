@@ -1,12 +1,4 @@
-const express = require("express");
-const app = express();
-
-
-const PORT = 8080;
-
-app.get("/", (req, res) => {
-    res.type('.js');
-    res.send(`if (!window.Mojito || !Mojito.testObjects || !Object.keys(Mojito.testObjects).length) {Mojito = (function () {
+if (!window.Mojito || !Mojito.testObjects || !Object.keys(Mojito.testObjects).length) {Mojito = (function () {
     var defaultOptions = {
         debug: false,
         cookieDuration: 60,
@@ -1227,9 +1219,4 @@ Mojito.addTest({
     Mojito.utils.domReady(test.activate);
 }
 });}
-Mojito.buildInfo={"container":"pvh","size":{"total":45537,"totalCompressed":5708,"lib":42151,"sharedCode":2392,"experiments":{"ex2":502}},"timestamp":"2024-07-01T12:54:25.991Z"};`);
-});
-
-app.listen(PORT, () => {
-    console.log(`app listening on port ${PORT}`);
-});
+Mojito.buildInfo={"container":"pvh","size":{"total":45537,"totalCompressed":5708,"lib":42151,"sharedCode":2392,"experiments":{"ex2":502}},"timestamp":"2024-07-01T12:54:25.991Z"};
