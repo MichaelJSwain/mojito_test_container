@@ -1,10 +1,16 @@
+const express = require("express");
+const app = express();
+
+
+const PORT = 8080;
+
 /**
  * Copyright (c) 2024, Mint Metrics Pty Ltd All rights reserved. BSD 3-Clause License. https://github.com/mint-metrics/mojito/blob/master/LICENSE
  * Copyright (c) 2010, James Yu. https://github.com/jamesyu/cohorts/blob/master/LICENSE
  * Copyright (c) 2005-2017, JS Foundation All rights reserved. https://dojotoolkit.org/license.html
  * Copyright (c) 2011 Sebastian Tschan, https://blueimp.net
  */
-if (!window.Mojito || !Mojito.testObjects || !Object.keys(Mojito.testObjects).length) {Mojito = (function () {
+const mojito = `if (!window.Mojito || !Mojito.testObjects || !Object.keys(Mojito.testObjects).length) {Mojito = (function () {
     var defaultOptions = {
         debug: false,
         cookieDuration: 60,
@@ -1225,4 +1231,12 @@ Mojito.addTest({
     Mojito.utils.domReady(test.activate);
 }
 });}
-Mojito.buildInfo={"container":"pvh","size":{"total":45537,"totalCompressed":5708,"lib":42151,"sharedCode":2392,"experiments":{"ex2":502}},"timestamp":"2024-07-01T12:54:25.991Z"};
+Mojito.buildInfo={"container":"pvh","size":{"total":45537,"totalCompressed":5708,"lib":42151,"sharedCode":2392,"experiments":{"ex2":502}},"timestamp":"2024-07-01T12:54:25.991Z"};`
+
+app.get("/", (req, res) => {
+    res.send(mojito);
+});
+
+app.listen(PORT, () => {
+    console.log(`app listening on port ${PORT}`);
+});
